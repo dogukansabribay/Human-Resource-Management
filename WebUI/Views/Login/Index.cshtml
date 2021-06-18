@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "";
+}
+<link href="~/Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/Login.css" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Forgot Password</label>
+        <div class="login-form">
+            <form asp-action="LoginKontrol" asp-controller="Login" class="card-body">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Email</label>
+                        <input id="user" name="Mail" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" name="Password" type="password" class="input" data-type="password">
+                    </div>
+
+
+                    <div class="g-recaptcha" data-sitekey="6LdCBdAaAAAAAMGzRxuQx_3MQJYa1sr__UKzdtzu"></div>
+                    <br />
+                    <div class="text-danger">@ViewBag.Robot</div>
+                    <p class="text-danger">
+
+                        @if (ViewBag.EmailSifreHatali != null)
+                        {
+                            @ViewBag.EmailSifreHatali
+                        }
+                    </p>
+
+
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                </div>
+            </form>
+            <div class="for-pwd-htm">
+                <div class="group">
+                    <label for="user" class="label">Email</label>
+                    <input id="user" type="text" class="input">
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Reset Password">
+                </div>
+                <div class="hr"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Bootstrap4/js/bootstrap.min.js"></script>

@@ -1,0 +1,48 @@
+﻿@model Entities.Concrete.UyelikPlani
+@{
+    Layout = "~/Areas/SiteYonetici/Views/Shared/_LayoutSiteYonetici.cshtml";
+}
+<main class="login-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" style="text-align:center">ÜYELİK PLANI EDİTLEME PANELİ</div>
+                    <div class="card-body">
+                        <form asp-controller="UyelikPlani" asp-action="Edit" method="post">
+                            <input type="hidden" asp-for="UyelikPlaniID" />
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Uyelik Plan Tanimi</label>
+                                <div class="col-md-6">
+                                    <input asp-for="UyelikPlaniTanimi" name="UyelikPlaniTanimi" type="text" class="form-control" required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Çalışan Sayısı</label>
+                                <div class="col-md-6">
+                                    <input asp-for="CalisanSayisi" name="CalisanSayisi" type="number" class="form-control" required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Fiyat</label>
+                                <div class="col-md-6">
+                                    <input asp-for="PlanUcreti" name="PlanUcreti" type="number" class="form-control" required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right"></label>
+                                <div class="col-md-6">
+                                    <input type="submit" value="KAYDET" class="form-control" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

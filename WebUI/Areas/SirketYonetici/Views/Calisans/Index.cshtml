@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Entities.Concrete.Calisan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/StyleSheetpersonelsıralama.css" rel="stylesheet" />
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table id="myTable">
+    <tr class="header">
+        <th >@Html.DisplayNameFor(model => model.Adi)</th>
+        <th >@Html.DisplayNameFor(model => model.Soyadi)</th>
+        <th > @Html.DisplayNameFor(model => model.DogumTarihi)</th>
+        <th >@Html.DisplayNameFor(model => model.MailIs)</th>
+        <th >@Html.DisplayNameFor(model => model.TelIs)</th>
+        <th > @Html.DisplayNameFor(model => model.AktifMi)</th>
+        <th > @Html.DisplayNameFor(model => model.IseGirisTarihi)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Adi)</td>
+            <td>@Html.DisplayFor(modelItem => item.Soyadi)</td>
+            <td>  @Html.DisplayFor(modelItem => item.DogumTarihi)</td>
+            <td>  @Html.DisplayFor(modelItem => item.MailIs)</td>
+            <td> @Html.DisplayFor(modelItem => item.TelIs)</td>
+            <td>@Html.DisplayFor(modelItem => item.AktifMi)</td>
+            <td> @Html.DisplayFor(modelItem => item.IseGirisTarihi)</td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.CalisanId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CalisanId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CalisanId">Delete</a>*@
+                <a asp-action="CalisanPasif" asp-route-id="@item.CalisanId">Pasif Et</a>
+            </td>
+        </tr>
+    }
+
+
+</table>

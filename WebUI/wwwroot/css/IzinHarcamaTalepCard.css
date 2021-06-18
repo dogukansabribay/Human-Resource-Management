@@ -1,0 +1,21 @@
+﻿btncolor, pcolor {
+    background-color: white;
+    margin-right: 15px;
+}
+
+pborder-margin {
+    border: dashed 2px;
+    margin-top: 10px;
+}
+
+.girisleft {
+    margin-left: 15px
+}
+
+.girisright {
+    margin-right: 15px
+}
+
+.card {
+    width: 40rem;
+}

@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "twitter-bootstrap@4.0.0",
+      "destination": "wwwroot/Bootstrap4/css/",
+      "files": [
+        "css/bootstrap.min.css"
+      ]
+    },
+    {
+      "library": "bootstrap-colorpicker@3.3.0",
+      "destination": "wwwroot/bootstrap-colorpicker/",
+      "files": [
+        "js/bootstrap-colorpicker.min.js",
+        "css/bootstrap-colorpicker.min.css"
+      ]
+    },
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/Bootstrap4/jquery/"
+    },
+    {
+      "library": "angularjs-color-picker@3.4.8",
+      "destination": "wwwroot/lib/angularjs-color-picker/"
+    },
+    {
+      "library": "bootstrap-toggle@2.2.2",
+      "destination": "wwwroot/lib/bootstrap-toggle/",
+      "files": [
+        "js/bootstrap-toggle.min.js",
+        "css/bootstrap-toggle.min.css"
+      ]
+    },
+    {
+      "library": "popper.js@2.9.2",
+      "destination": "wwwroot/popper.js/",
+      "files": [
+        "umd/popper.min.js"
+      ]
+    }
+  ]
+}

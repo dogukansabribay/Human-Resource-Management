@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Entities.Concrete.Calisan>
+
+@{
+    ViewData["Title"] = "CalisanGoruntuleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/CalisanGoruntuleme.css" rel="stylesheet" />
+
+
+<style>
+    .marginleft {
+        margin-left: 335px;
+    }
+</style>
+@*
+    <form asp-action="CalisanGoruntuleme" asp-controller="Calisan"> *@
+<div class="container">
+    @using (Html.BeginForm("CalisanGoruntuleme","Calisan"))
+    {
+    <div class="form-group">
+        <div style="width:25%;float:left">
+            @*@Html.TextBox("ara", null, new { @class = "form-control", @placeholder = "Search for..." })*@
+            <input type="text" name="ara"  />
+
+        </div>
+        <div style="float:left;margin-left:-5px">
+            <button type="submit"> Ara </button>
+            @*@Html.ActionLink("ara", "CalisanGoruntuleme", null, new { @class = "btn btn-info", onclick = "$(this).parents('form').attr('action', $(this).attr('href'));$(this).parents('form').submit();return false;" })*@
+        </div>
+    </div>
+
+    }
+</div>
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div class="our-team-main">
+
+                    <div class="team-front">
+                        <img src=@Html.DisplayFor(a => item.Fotograf) class="img-fluid" />
+                        <h3>@Html.DisplayFor(a => item.Adi)  @Html.DisplayFor(a => item.Soyadi)</h3>
+                        <p asp-items="Html.GetEnumSelectList<DepartmanTipi>()"></p>
+
+                    </div>
+
+                    <div class="team-back">
+                        <span>
+                            <br />
+                            <br />
+
+
+                            <p style="margin-left:70px;">@Html.DisplayFor(a => item.MailIs)</p><br />
+                            <p style="margin-left:100px;">@Html.DisplayFor(a => item.TelIs)</p>
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+@*</form>*@
+
+<script src="~/Bootstrap4/js/bootstrap.min.js"></script>
+
+

@@ -1,0 +1,33 @@
+﻿@model Entities.Concrete.Bildirim
+
+@{
+    ViewData["Title"] = "BildirimDetay";
+}
+<style>
+    .card {
+        width: 500px;
+        height: 500px;
+        margin-right: 50px
+    }
+
+    p {
+        margin-left: 25%
+    }
+
+    img {
+        padding-left: 150px;
+        padding-top: 50px
+    }
+</style>
+<div class="row">
+
+    <div class="col rounded">
+        <p style="padding-left:50px">@Html.DisplayFor(model => model.Baslik)</p>
+    </div>
+
+    <div class="col card">
+        <p>@Html.Raw(Model.Icerik)</p>
+        <p>@Html.DisplayFor(model => model.SablonTanimi)</p>
+    </div>
+
+</div>

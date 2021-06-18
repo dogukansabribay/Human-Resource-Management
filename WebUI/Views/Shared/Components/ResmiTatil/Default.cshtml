@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DataAccess.ViewModels.ResmiTatilViewModel>
+
+
+
+<div class="card border border-dark">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Resmi Tatiller
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.TatilTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TatilBitisTarihi)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aciklama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TatilTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TatilBitisTarihi)
+                </td>
+
+                <td>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

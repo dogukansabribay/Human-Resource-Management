@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebUI</title>
+
+    <!-- Bootstrap core CSS     -->
+    <link href="~/light-bootstrap-dashboard-master/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Animation library for notifications   -->
+    <link href="~/light-bootstrap-dashboard-master/BS3/assets/css/animate.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="~/light-bootstrap-dashboard-master/BS3/assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+    <link href="~/light-bootstrap-dashboard-master/BS3/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="~/css/Layout.css" rel="stylesheet" />
+    <style>
+        .nav-itemChange {
+            margin-top: 5px;
+            width: 300px;
+        }
+
+        .sidebar[data-color="special"]:after {
+            background: #596d6e;
+            background: -moz-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1F77D0), color-stop(100%, #533ce1));
+            background: -webkit-linear-gradient(top, #1F77D0 0%, #189b4c 100%);
+            background: -o-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
+            background: -ms-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
+            background: linear-gradient(to bottom, #5c9bae 0%, #8c4de0 100%);
+            background-size: 150% 150%;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .main-panel .navbar {
+            height: 60.6px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="special" />
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a asp-action="Index" asp-controller="Home" class="simple-text nav-link">
+                    KolayİK
+                </a>
+
+                @if (Context.Request.Cookies["SirketAd"] != null)
+                {
+                    <span>
+                        @Context.Request.Cookies["SirketAd"]
+                    </span>
+                }
+
+                <span id="SirketAdi">
+
+                </span>
+                <img id="SirketLogo" />
+            </div>
+            <ul class="nav">
+                <li class="nav-item nav-itemChange">
+                    <a data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" class="nav-link">
+                        <i class="pe-7s-cloud"></i>
+                        <p>Profilim</p>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="changecolor nav-link" asp-area="" asp-controller="Login" asp-action="ParolaDegistirme"><p>Şifre Değiştirme</p></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-itemChange">
+                    <a asp-area="SirketYonetici" asp-controller="Calisans" asp-action="Create" class="nav-link"><i class="pe-7s-add-user"></i><p> Çalışan Ekle</p> </a>
+                </li>
+                <li class="nav-item nav-itemChange">
+
+                    <a asp-area="SirketYonetici" asp-controller="IzinBilgileriYukleme" asp-action="Index" class="nav-link"><i class="pe-7s-upload"></i><p> İzin Bilgileri Ekle</p> </a>
+                </li>
+
+                <li class="nav-item nav-itemChange">
+                    <a asp-area="SirketYonetici" asp-controller="Bildirim" asp-action="DuyuruGonder" class="nav-link"><i class="pe-7s-alarm"></i> <p>Duyuru Oluştur</p> </a>
+                </li>
+                <li class="nav-item nav-itemChange">
+                    <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Logout" >
+                        <i class="pe-7s-left-arrow"></i>
+                        <p>Çıkış Yap</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+
+        @await Html.PartialAsync("_NavbarTopYonetici")
+
+        <div class="content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+
+
+    <!--  Notifications Plugin    -->
+    <script src="~/light-bootstrap-dashboard-master/assets/js/plugins/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="~/text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <!--   Core JS Files   -->
+    <script src="~/light-bootstrap-dashboard-master/BS3/assets/js/jquery.3.2.1.min.js"></script>
+    <script src="~/light-bootstrap-dashboard-master/BS3/assets/js/bootstrap.min.js"></script>
+
+    <!--  Charts Plugin -->
+    <script src="~/light-bootstrap-dashboard-master/BS3/assets/js/bootstrap-notify.js"></script>
+
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="~/light-bootstrap-dashboard-master/BS3/assets/js/light-bootstrap-dashboard.js"></script>
+
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="~/light-bootstrap-dashboard-master/BS3/assets/js/demo.js"></script>
+    <script>
+	$(document).ready(function () {
+        // set the url to get the data from the PersonController
+        var url = '@Url.Action("GetSirketAdi", "SirketBilgisi")';
+
+        // use jQuery.getJSON to get our data from the controller
+        $.getJSON(url, function(data) {
+            // update the element with the count from the controller
+            $('#SirketAdi').text(data.Ad);
+        });
+
+        var url2 = '@Url.Action("GetSirketLogo", "SirketBilgisi")';
+
+        // use jQuery.getJSON to get our data from the controller
+        $.getJSON(url2, function(data) {
+            // update the element with the count from the controller
+            $('#SirketLogo').text(data.Logo);
+        });
+    });
+    </script>
+</body>
+</html>

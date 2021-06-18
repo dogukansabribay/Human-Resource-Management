@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Entities.Concrete.UyelikPlani>
+@{
+    Layout = "~/Areas/SiteYonetici/Views/Shared/_LayoutSiteYonetici.cshtml";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="cotainer">
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="text-align:center">@item.UyelikPlaniTanimi Paketi</div>
+                    <div class="card-body">
+                            <div class="form-group row">
+                                <label class="col-md-6 col-form-label text-md-right">Uyelik Plan Tanimi</label>
+                                <div class="col-md-6">
+                                    <label >@item.UyelikPlaniTanimi</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-6 col-form-label text-md-right">Çalışan Sayısı</label>
+                                <div class="col-md-6">
+                                    <label>@item.CalisanSayisi</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-6 col-form-label text-md-right">Fiyat</label>
+                                <div class="col-md-6">
+                                    <label>@item.PlanUcreti</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">                                
+                                <div class="col-md-6">
+                                    <a class="form-control" asp-action="Edit" asp-route-id="@item.UyelikPlaniID">Edit</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="form-control" asp-action="Sil" asp-route-id="@item.UyelikPlaniID">Sil</a>
+                                </div>
+                            </div>                        
+                    </div>
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

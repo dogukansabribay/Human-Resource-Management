@@ -1,0 +1,117 @@
+﻿@model Entities.Concrete.CalisanHarcama
+
+@{
+    ViewData["Title"] = "HarcamaDetay";
+}
+
+<h2>HarcamaDetay</h2>
+
+
+<h4>CalisanHarcama</h4>
+<hr />
+<table class="table">
+
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HarcamaAciklamasi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HarcamaMiktari)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HarcamaTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HarcamaBelgesiYolu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calisan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.HarcamaAciklamasi)
+            </th>
+
+            <th>
+                @Html.DisplayFor(model => model.HarcamaMiktari)
+            </th>
+
+            <th>
+                @Html.DisplayFor(model => model.HarcamaTarihi)
+            </th>
+
+            <th>
+                @Html.DisplayFor(model => model.HarcamaBelgesiYolu)
+            </th>
+
+            <th>
+                @Html.DisplayFor(model => model.Calisan.Adi)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </th>
+
+        </tr>
+
+
+    </tbody>
+
+
+</table>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CalisanHarcamaID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 border-right">
+        <div class="p-3 py-5">
+           
+            <div class="row mt-3">
+                <div class="col-md-12"><label class="labels">Acıklama</label><input type="text" class="form-control" placeholder=" @Html.DisplayNameFor(model => model.HarcamaAciklamasi)" value="" readonly></div>
+                <div class="col-md-12"><label class="labels">Kullanıcı Adı</label><input type="text" class="form-control" placeholder="@Html.DisplayNameFor(model => model.HarcamaMiktari)" value="" readonly></div>
+
+                <div class="col-md-12"><label class="labels">URL</label><input type="text" class="form-control" placeholder=" @Html.DisplayNameFor(model => model.HarcamaTarihi)" value="" readonly></div>
+                <div class="col-md-12"><label class="labels">URL</label><input type="text" class="form-control" placeholder="@Html.DisplayNameFor(model => model.HarcamaBelgesiYolu)" value="" readonly></div>
+                <div class="col-md-12"><label class="labels">URL</label><input type="text" class="form-control" placeholder="@Html.DisplayFor(model => model.Calisan.Adi)" value="" readonly></div>
+                <div class="col-md-12"><label class="labels">URL</label><input type="text" class="form-control" placeholder=" @Html.DisplayFor(model => model.CreatedDate)" value="" readonly></div>
+                <div class="col-md-12"><label class="labels">URL</label><input type="text" class="form-control" placeholder=" @Html.DisplayNameFor(model => model.ModifiedDate)" value="" readonly></div>
+            </div>
+        </div>
+        <div class="col-md-6 border-right">
+            <div class="p-3 py-5">
+              
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Acıklama</label><input type="text" class="form-control" placeholder="  @Html.DisplayFor(model => model.HarcamaAciklamasi)" value="" readonly></div>
+                    <div class="col-md-12"><label class="labels">Kullanıcı Adı</label><input type="text" class="form-control" placeholder="@Html.DisplayFor(model => model.HarcamaMiktari)" value="" readonly></div>
+                    <div class="col-md-12"><label class="labels">Kullanıcı Adı</label><input type="text" class="form-control" placeholder="@Html.DisplayFor(model => model.HarcamaTarihi)" value="" readonly></div>
+                    <div class="col-md-12"><label class="labels">Kullanıcı Adı</label><input type="text" class="form-control" placeholder=" @Html.DisplayFor(model => model.HarcamaBelgesiYolu)" value="" readonly></div>
+                    <div class="col-md-12"><label class="labels">Kullanıcı Adı</label><input type="text" class="form-control" placeholder="@Html.DisplayFor(model => model.Calisan.Adi)" value="" readonly></div>
+                    <div class="col-md-12"><label class="labels">Kullanıcı Adı</label><input type="text" class="form-control" placeholder="@Html.DisplayFor(model => model.CreatedDate)" value="" readonly></div>
+                    <div class="col-md-12"><label class="labels">URL</label><input type="text" class="form-control" placeholder="  @Html.DisplayFor(model => model.ModifiedDate)" value="" readonly></div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>

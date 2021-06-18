@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="css/DetaylarDeneme2.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <html>
+    <head>
+        <title>Seminors</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/mainstyles.css">
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/moment-with-locales.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-datetimepicker.min.js"></script>
+        <script src="js/customJquery.js"></script>
+
+    </head>
+    <body class="main-body">
+       
+        <section>
+            <div class="Seminor-banner">
+                <img class="img-fluid" src="images/seminar1.jpeg" />
+            </div>
+        </section>
+        <section id="post-your-event-tabs">
+            <div class="container">
+                <!-- Nav pills -->
+                <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="organizer-event-tab" data-toggle="tab" href="#organizer-event" role="tab" aria-controls="organizer-event" aria-selected="true">Düzenleme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="event-details-tab" data-toggle="tab" href="#event-details" role="tab" aria-controls="event-details" aria-selected="false">Detaylar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="confirm-details-tab" data-toggle="tab" href="#confirm-details" role="tab" aria-controls="confirm-details" aria-selected="false">Silme</a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content py-3 px-3 px-sm-0 events-tab-content">
+                    <div class="tab-pane fade show active" id="organizer-event" role="tabpanel" aria-labelledby="organizer-event-tab">
+                        <form asp-action="Edit" class="seminor-login-form ges-location-from">
+
+                            <div class="form-group">
+                                <label for="contact-person">Contact Person</label>
+                                <input type="text" placeholder="Contact Organizing Person" class="form-control ges-form-control" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-email">Contact Email</label>
+                                <input type="email" placeholder="Contact Organizer Email" class="form-control ges-form-control" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="alternative-email">Alternative Email</label>
+                                <input type="email" placeholder="Contact Organizer Alternative Email" class="form-control ges-form-control" autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-number">Contact Number</label>
+                                <input type="text" placeholder="Contact Organizer Phone Number" class="form-control ges-form-control" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="alternative-number">Alternative Number</label>
+                                <input type="text" placeholder="Contact Organizer Phone Alternative Number" class="form-control ges-form-control" autocomplete="off">
+                            </div>
+                            <div class="btn-check-log text-center">
+                                <button type="submit" class="btn-check-login ripple-effect">NEXT</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="event-details" role="tabpanel" aria-labelledby="event-details-tab">
+                        <form class="seminor-login-form ges-location-from">
+                            <div class="form-group">
+                                <label for="event-title">Event Title</label>
+                                <input type="text" placeholder="Event Title" class="form-control ges-form-control" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="event-start-date">Event Start Date</label>
+                                <input type='text' placeholder="Event Start Date (MM/DD/YYYY)" class="form-control ges-form-control date" id='datetimepicker1' autocomplete="off" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="event-end-date">Event End Date</label>
+                                <input type='text' placeholder="Event End Date (MM/DD/YYYY)" class="form-control ges-form-control date" id='datetimepicker2' autocomplete="off" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last-date-registration">Last Date For Registration</label>
+                                <input type="text" placeholder="Last Date For Registration (MM/DD/YYYY)" class="form-control ges-form-control date" id='datetimepicker3' required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="venue-city">Venue City</label>
+                                <input type="text" placeholder="Event Venue City" class="form-control ges-form-control" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="venue-location">Venue Location</label>
+                                <input type="text" placeholder="Event Venue Location" class="form-control ges-form-control" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="full-address">Full Address</label>
+                                <input type="text" placeholder="Event Full Address" class="form-control ges-form-control" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Website">Website</label>
+                                <input type="text" placeholder="Event Website" class="form-control ges-form-control" autocomplete="off">
+                            </div>
+
+                            <div class="btn-check-log text-center">
+                                <!--   <button type="submit" class="btn-check-login">LOGIN</button> -->
+                                <button type="submit" class="btn-check-login ripple-effect">NEXT</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="confirm-details" role="tabpanel" aria-labelledby="confirm-details-tab">
+                        <form class="seminor-login-form">
+                            <ul class="post-final-submit">
+                                <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></li>
+                                <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></li>
+                                <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></li>
+                                <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></li>
+                                <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></li>
+                                <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></li>
+                            </ul>
+                            <div class="btn-check-log text-center">
+                                <button type="submit" class="btn-check-login ripple-effect">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--<section>
+            <footer class="bg-seminor-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm d-none d-sm-block">
+                            <div class="footer-menu">
+                                <ul class="footer-menu-ul">
+                                    <li><a href="index.html" alt="home">Home</a></li>
+                                    <li><a href="about-us.html" alt="About Us">About Us</a></li>
+                                    <li><a href="contact-us.html" alt="Contact">Contact</a></li>
+                                    <li><a href="javascript:void(0)" alt="FAQ/Help">FAQ/Help</a></li>
+                                    <li><a href="privacy-policy.html" alt="Privacy Policy">Privacy Policy</a></li>
+                                    <li><a href="termsAndConditions.html" alt="Terms And Conditions">Terms And Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="footer-sub-div">
+                                <div class="footer-sub">
+                                    <form method="post" validate="validate" id="subscribe">
+                                        <div class="form-group">
+                                            <input type="email" required="required" class="form-control-for-FAU-1" name="email" id="email" placeholder="Enter your Email">
+                                        </div>
+                                        <button type="submit" class="btn btn-sub ripple-effect">Subscribe to our Newsletter</button>
+                                    </form>
+                                    <div id="subscribeMessage" class="m-t-5"></div>
+                                </div>
+                                <div class="p-4 d-none d-sm-block seminor-brand-color">
+                                    <a href="index.html" class="text-white">SEMINORS</a>
+                                </div>
+                                <div class="p-1 d-none d-sm-block">
+                                    <span class="text-white font-weight-bold">Copyright 2018. All Rights Reserved.</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm">
+                            <div class="footer-sub-div">
+                                <p class="text-white font-weight-bold">Follow Us</p>
+                                <ul class="footer-fallow-ul">
+                                    <li><a href="https://www.facebook.com/" target="_blank"><span><i class="fa fa-facebook" aria-hidden="true"></i></span></a></li>
+                                    <li><a href="https://twitter.com/" target="_blank"><span><i class="fa fa-twitter" aria-hidden="true"></i></span></a></li>
+                                    <li><a href="javascript:void(0)"><span><i class="fa fa-rss" aria-hidden="true"></i></span></a></li>
+                                    <li><a href="javascript:void(0)" target="_blank"><span><i class="fa fa-google-plus" aria-hidden="true"></i></span></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank"><span><i class="fa fa-instagram" aria-hidden="true"></i></span></a></li>
+                                    <li><a href="https://www.youtube.com/" target="_blank"><span><i class="fa fa-youtube-play" aria-hidden="true"></i></span></a></li>
+
+                                </ul>
+                                <div class="p-4 d-block d-sm-none seminor-brand-color">
+                                    <a href="index.html" class="text-white">SEMINORS</a>
+                                </div>
+                                <div class="p-1 d-block d-sm-none">
+                                    <span class="text-white font-weight-bold">Copyright 2018. All Rights Reserved.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>-->
+    </body>
+</html>
+    <script src="Bootstrap4/js/bootstrap.min.js"></script>
+    <script>
+		$(document).ready(function () {
+			var navHeight = $('nav').height();
+			$('body').css({ 'padding-top': navHeight + 35 + 'px' });
+
+			$('[data-toggle="popover"]').popover({ trigger: "hover" });
+			$('#datetimepicker1, #datetimepicker2, #datetimepicker3').datetimepicker({
+				minDate: new Date(),
+				format: 'MM/DD/YYYY'
+			});
+
+			$(".ripple-effect").click(function (e) {
+				var rippler = $(this);
+
+				// create .ink element if it doesn't exist
+				if (rippler.find(".ink").length == 0) {
+					rippler.append("<span class='ink'></span>");
+				}
+
+				var ink = rippler.find(".ink");
+
+				// prevent quick double clicks
+				ink.removeClass("animate");
+
+				// set .ink diametr
+				if (!ink.height() && !ink.width()) {
+					var d = Math.max(rippler.outerWidth(), rippler.outerHeight());
+					ink.css({ height: d, width: d });
+				}
+
+				// get click coordinates
+				var x = e.pageX - rippler.offset().left - ink.width() / 2;
+				var y = e.pageY - rippler.offset().top - ink.height() / 2;
+
+				// set .ink position and add class .animate
+				ink.css({
+					top: y + 'px',
+					left: x + 'px'
+				}).addClass("animate");
+			});
+
+		});
+    </script>
+</body>
+</html>

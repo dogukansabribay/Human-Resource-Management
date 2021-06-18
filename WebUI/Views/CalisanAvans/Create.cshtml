@@ -1,0 +1,60 @@
+﻿@model Entities.Concrete.CalisanAvans
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .marginleft {
+        margin-left: 205px;
+    }
+</style>
+<link href="~/css/IzinHarcamaTalepCard.css" rel="stylesheet" />
+
+<div class="content d-inline">
+    <div class="d-flex justify-content-center">
+        <div class="card">
+            <div class="w-100">
+                <form asp-action="Create" class="card-body" method="post" asp-controller="CalisanAvans" asp-area="">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="card-title">
+                        <h5>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet" viewBox="0 0 16 16">
+                                <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z"></path>
+                            </svg>
+                            Avans Ekle
+                        </h5>
+                    </div><hr />
+                    <div class="container ">
+
+                        <p class="control-label col w-50 border-white marginleft">Avans Tutarı Giriniz</p>
+                        <input type="text" asp-for="AvansMiktarı" class="col w-50 marginleft " /><br />
+
+                        <label class="marginleft col border-warning mt-4" >@ViewBag.GecmisTarihliAvansTalep</label>
+                        <p class="control-label col w-50 border-white marginleft mt-2">Avansın İstendiği Tarih</p>
+                        <input type="date" asp-for="AvansTarihi" class="col w-50 marginleft " /><br />
+
+                        <p class="col w-50 mt-5 marginleft">Avansın Taksit Sayısını Belirtiniz</p>
+                        <input type="number" asp-for="TaksitSayısı" class="col w-50 marginleft"  /><br />
+
+                        <p class="col w-50 marginleft mt-5">Avansı neden istediğinizi tek cümleyle açıklayınız. </p>
+                        <input type="text" asp-for="Acıklama" class="col w-50 marginleft  " />
+
+                    </div>
+
+                    <hr />
+                    <div class="row">
+                        <input type="submit" class="col btn border mr-3" value="İptal Et" />
+                        <input type="submit" class="col btn border" value="Kaydet" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

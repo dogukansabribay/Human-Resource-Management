@@ -1,0 +1,67 @@
+﻿@*@model IEnumerable<Entities.Concrete.CalisanHarcama>
+
+@{
+    ViewData["Title"] = "GecmisHarcamalar";
+}
+
+<link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .marginleft {
+        margin-left: 335px;
+    }
+</style>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Harcamalarım</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HarcamaAciklamasi)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HarcamaMiktari)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HarcamaAciklamasi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HarcamaMiktari)
+                                </td>
+                                <td>
+ Html.DisplayFor(modelItem => item.HarcamaTarihi)</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="Bootstrap4/js/bootstrap.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $('.leftmenutrigger').on('click', function (e) {
+                $('.side-nav').toggleClass("open");
+                e.preventDefault();
+            });
+        });
+</script>*@
+
+<div class="container">
+    @await Component.InvokeAsync("GecmisHarcamalar")
+</div>

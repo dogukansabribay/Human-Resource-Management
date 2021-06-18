@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Entities.Concrete.KullaniciYorumu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/SiteYonetici/Views/Shared/_LayoutSiteYonetici.cshtml";
+}
+<h1 class="text-center">YORUMLAR</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Yorum içeriği
+            </th>
+            <th>
+                Memnuniyet
+            </th>
+            <th>
+                Kişi izni
+            </th>
+            <th>
+                Yorum Yapan Kişi
+            </th>
+            <th>
+                Okundu mu?
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.YorumDetay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YorumTanimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YayinlansinMi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calisan.Adi) @Html.DisplayFor(modelItem => item.Calisan.Soyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OkunduMu)
+            </td>
+           
+            <td>
+                <a asp-action="YorumDetay" asp-route-id="@item.KullaniciYorumuId">Yorumu Oku</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

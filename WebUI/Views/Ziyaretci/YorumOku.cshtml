@@ -1,0 +1,88 @@
+﻿@model Entities.Concrete.KullaniciYorumu
+@{
+    ViewData["Title"] = "YorumOku";
+    Layout = "_LayoutZiyaretci";
+}
+<style>
+    .container {
+        margin-right: unset
+    }
+
+    .dark {
+        background-image: linear-gradient(to left bottom,#FFBD8B,#284F47);
+    }
+
+        .dark .page-home .overlay {
+            background-image: linear-gradient(to left bottom,#FFBD8B,#284F47);
+        }
+
+    .loading-mask {
+        position: absolute;
+        background-color: #284F47;
+    }
+    .pt-table{
+        height:100vh;
+    }
+</style>
+<div class="preloader">
+    <div class="loading-mask"></div>
+    <div class="loading-mask"></div>
+    <div class="loading-mask"></div>
+    <div class="loading-mask"></div>
+    <div class="loading-mask"></div>
+</div>
+
+<main class="dark">
+    <div class="pt-table">
+        <div class="pt-tablecell page-quotes relative">
+            <!-- .close -->
+            <a asp-action="Index" asp-controller="Ziyaretci" class="page-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
+                </svg>
+            </a>
+            <!-- /.close -->
+            <div class="container" style="margin:auto">
+                <div class="row">
+                    <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8" style="margin:auto">
+                        <div class="page-title text-center">
+                            <h2> <span class="primary">Ne</span><span class="title-bg"> Diyor?</span></h2>
+                        </div>
+                    </div>
+                </div> <!-- /.row -->
+
+                <div class="row">
+                    <div class="col">
+                        <div class="kullanici">
+                            <div class="item clear row">
+                                <div class="thumb col-2">
+                                    @if (Model.Calisan.Fotograf != null)
+                                    {
+                                        <div class="tm-hex" style="background-image:url('@Model.Calisan.Fotograf')">
+                                            <div class="hexTop"></div>
+                                            <div class="hexBottom"></div>
+                                        </div>
+                                    }
+                                    @if(Model.Calisan.Fotograf==null)
+                                    {
+                                    <div class="tm-hex">
+                                        <div class="hexTop"></div>
+                                        <div class="hexBottom"></div>
+                                    </div>
+                                    }
+                                    <div>
+                                        <h4>@Model.Calisan.Adi @Model.Calisan.Soyadi</h4>
+                                        <span>@Model.Calisan.Sirket.Adi</span>
+                                    </div>
+                                </div>
+                                <div class="text col" style="margin-top:40px; margin-left:20px">
+                                    <p>@Model.YorumDetay </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.pt-tablecell -->
+    </div> <!-- /.pt-table -->
+</main> <!-- /.site-wrapper -->

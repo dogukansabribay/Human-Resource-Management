@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="light-bootstrap-dashboard-master/BS3/assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+
+    <style>
+        button, p {
+            background-color: white;
+            margin-right: 15px;
+        }
+
+        p {
+            border: dashed 2px;
+            margin-top: 10px;
+        }
+
+        .girisleft {
+            margin-left: 15px
+        }
+
+        .girisright {
+            margin-right: 15px
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 40rem;">
+            <div class="w-100">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5>
+                            İzin Talep Formu
+                        </h5>
+                    </div><hr />
+                    <div class="row">
+                        <p class="col w-50 border-white girisleft">Başlangıç Tarihi</p>
+                        <p class="col w-50 border-white girisleft">Bitiş Tarihi</p>
+                    </div>
+                    <div class="row">
+                        <input type="date" class="col w-50 girisleft" />
+                        <input type="date" class="col w-50 girisright girisleft" />
+                    </div>
+                    <br />
+                    <div>
+                        <a href="#" class="btn dropdown w-100 girisright" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                            İzin Türü
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="changecolor dropdown-item" href="#">Yıllık İzin</a></li>
+                        </ul>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <input class="col w-100 border-white girisleft " type="file"/>
+                    </div>
+
+                    <div class="row">
+                        <p class="col w-50 border-white girisleft">Açıklama</p>
+                    </div>
+                    <div class="row">
+                        <input type="text" class="col w-100 girisright girisleft" />
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <a class="col btn w-25 border girisleft">İptal</a>
+                        <a class="col btn w-25 border girisright">Kaydet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--   Core JS Files   -->
+    <script src="light-bootstrap-dashboard-master/BS3/assets/js/jquery.3.2.1.min.js"></script>
+    <script src="light-bootstrap-dashboard-master/BS3/assets/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Entities.Concrete.KullaniciYorumu>
+<style>
+   
+    .dark {
+        background-image: linear-gradient(to left bottom,#FFBD8B,#284F47);
+    }
+
+        .dark .page-home .overlay {
+            background-image: linear-gradient(to left bottom,#FFBD8B,#284F47);
+        }
+
+        .dark .page-title h2 {
+            color: #ffffff;
+        }
+
+
+        .dark .page-title .title-bg {
+            color: rgba(70, 88, 124, 0.06);
+        }
+
+        .dark .section-title h3::before {
+            background-image: linear-gradient(to left bottom,#FFBD8B,#284F47);
+        }
+
+        .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
+        .dark .about-author .author-desc p {
+            color: #fff;
+        }
+
+        .dark .service-hex .st0 {
+            fill: transparent;
+        }
+
+        .dark .service-hex:hover .st0 {
+            fill: #596d6e;
+        }
+
+        .dark .testimonials .text,
+        .dark .btn-border {
+            border-color: #112F41;
+        }
+
+    .service-hex:hover .service-hex div::before, .service-hex:hover .service-hex div::after, .btn-primary, .loading-mask, .section-title h3::after, .service-hex:hover .service-hex div::before, .service-hex:hover .service-hex div::after, .progress .bar, .contact-social li:hover span {
+        background-color: #FFBD8B
+    }
+
+    .service-hex:hover .hex-item div::before, .service-hex:hover .hex-item div::after, .btn-primary, .loading-mask, .section-title h3::after, .service-hex:hover .hex-item div::before, .service-hex:hover .hex-item div::after, .progress .bar, .contact-social li:hover span {
+        background-color: #FFBD8B
+    }
+
+    .loading-mask {
+        background-color: #284F47;
+        position: absolute;
+    }
+
+    .service-hex div::before, .service-hex div::after {
+        background-color: #284F47
+    }
+
+    .page-title p {
+        color: white;
+    }
+
+    .content {
+        -webkit-transform: rotate(-30deg);
+    }
+
+    .service-hex {
+                    margin: 20px;
+/*         margin: 50px; altıgeniçine almak için
+*/    }
+
+    .content h4 {
+        color: #284F47;
+    }
+
+
+    .service-hex .content {
+        left: 63%;
+    }
+    .container{
+        margin-bottom:150px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="@*col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8*@" style="margin:auto">
+            <div class="page-title home text-center">
+                <h2 style="margin-bottom:100px"><span class="border-secondary">Kullananlar</span><span class="title-bg">Ne Diyor?</span></h2>
+                @foreach (var item in Model)
+                {
+                    <div class="hexagon-menu">
+                        <div class="service-hex">
+                            <a asp-route-id="@item.KullaniciYorumuId" asp-controller="Ziyaretci" asp-action="YorumOku">                               
+                                <div class="content">
+                                    <h4><b>@item.Calisan.Adi</b></h4>                               
+                                    <p>@item.YorumDetay</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>

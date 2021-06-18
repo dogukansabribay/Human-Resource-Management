@@ -1,0 +1,160 @@
+﻿@model Entities.Concrete.Calisan
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<link href="~/StyleSheetcreateperson.css" rel="stylesheet" />
+<!-- Fonts -->
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="icon" href="Favicon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<main class="login-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" style="text-align:center">PERSONEL KAYIT EKRANI</div>
+                    <div class="card-body">
+                        <form asp-action="Create" enctype="multipart/form-data">
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right"></label>
+                                <div class="col-md-6">
+                                    @if (ViewBag.CalisanSayiHatasi != null)
+                                    {
+                                        <span class="text-danger">  @ViewBag.CalisanSayiHatasi</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="Adi" class="col-md-4 col-form-label text-md-right">Ad</label>
+                                <div class="col-md-6">
+                                    <input asp-for="Adi" type="text" id="password" class="form-control" required autofocus>
+                                    <span asp-validation-for="Adi" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="Soyadi" class="col-md-4 col-form-label text-md-right">Soyad</label>
+                                <div class="col-md-6">
+                                    <input asp-for="Soyadi" type="text" id="password" class="form-control" required>
+                                    <span asp-validation-for="Soyadi" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="DogumTarihi" class="col-md-4 col-form-label text-md-right">Doğum Tarihi</label>
+                                <div class="col-md-6">
+                                    <input asp-for="DogumTarihi" type="date" id="password" class="form-control" required>
+                                    <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="MailKisisel" class="col-md-4 col-form-label text-md-right">Kişisel Mail Adresi</label>
+                                <div class="col-md-6">
+                                    <input asp-for="MailKisisel" type="email" id="email_address" class="form-control" required>
+                                    <span asp-validation-for="MailKisisel" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="MailIs" class="col-md-4 col-form-label text-md-right">İş Mail Adresi</label>
+                                <div class="col-md-6">
+                                    <input asp-for="MailIs" type="email" id="email_address" class="form-control" required>
+                                    <span asp-validation-for="MailIs" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="TcNo" class="col-md-4 col-form-label text-md-right">T.C Kimlik Numarası</label>
+                                <div class="col-md-6">
+                                    <input asp-for="TcNo" type="text" id="password" class="form-control" required>
+                                    <span asp-validation-for="TcNo" class="text-danger"></span>
+                                    @if (ViewBag.TcNo != null)
+                                    {
+                                        <span class="text-danger">  @ViewBag.TcNo</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="Cinsiyet" class="col-md-4 col-form-label text-md-right">Cinsiyet</label>
+                                <div class="col-md-6">
+
+                                    <span asp-validation-for="Cinsiyet" class="text-danger"></span>
+                                    <select asp-for="Cinsiyet" class="form-control" asp-items="@Html.GetEnumSelectList<Cinsiyet>()"></select><br />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="KanGrubu" class="col-md-4 col-form-label text-md-right">Kan Grubu</label>
+                                <div class="col-md-6">
+
+                                    <span asp-validation-for="KanGrubu" class="text-danger"></span>
+                                    <select asp-for="KanGrubu" class="form-control" asp-items="@Html.GetEnumSelectList<KanGrubu>()"></select><br />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="MedeniDurum" class="col-md-4 col-form-label text-md-right">Medeni Durum</label>
+                                <div class="col-md-6">
+                                    <span asp-validation-for="MedeniDurum" class="text-danger"></span>
+                                    <select asp-for="MedeniDurum" class="form-control" asp-items="@Html.GetEnumSelectList<MedeniDurum>()"></select><br />
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="ResimDosyasi" class="col-md-4 col-form-label text-md-right">Fotoğraf</label>
+                                <div class="col-md-6">
+                                    <input asp-for="ResimDosyasi" id="password" class="form-control" required>
+                                    <span asp-validation-for="ResimDosyasi" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="TelIs" class="col-md-4 col-form-label text-md-right">İş Telefon</label>
+                                <div class="col-md-6">
+                                    <input asp-for="TelIs" type="text" id="password" class="form-control" required>
+                                    <span asp-validation-for="TelIs" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="TelKisisel" class="col-md-4 col-form-label text-md-right">Kişisel Telefon</label>
+                                <div class="col-md-6">
+                                    <input asp-for="TelKisisel" type="text" id="password" class="form-control" required>
+                                    <span asp-validation-for="TelKisisel" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label asp-for="IseGirisTarihi" class="col-md-4 col-form-label text-md-right">İŞe Giriş Tarihi</label>
+                                <div class="col-md-6">
+                                    <input asp-for="IseGirisTarihi" type="date" id="password" class="form-control" required>
+                                    <span asp-validation-for="IseGirisTarihi" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right"></label>
+                                <div class="col-md-6">
+                                    <input type="submit" value="KAYDET" id="password" class="form-control" />
+                                    <div>
+                                        <a asp-action="Index">Back to List</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+

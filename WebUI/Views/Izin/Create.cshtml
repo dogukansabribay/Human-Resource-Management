@@ -1,0 +1,133 @@
+﻿@model Entities.Concrete.Izin
+
+@{
+    ViewData["Title"] = "Yeni İzin Talebi";
+}
+<style>
+
+    .center {
+        left: 50%;
+    }
+
+    .dropzone {
+        height: 80px;
+        border: 1px dashed #999;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    .upload-input {
+        position: relative;
+        top: -62px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+</style>
+<link href="~/css/IzinHarcamaTalepCard.css" rel="stylesheet" />
+<div class="content">
+    <div class="d-flex justify-content-center">
+        <div class="card">
+            <div class="w-100">
+                @if (ViewBag.GecmisIzinAlamazsiniz != null)
+                {
+                    <label class="text-danger girisleft">
+                        @ViewBag.GecmisIzinAlamazsiniz
+                    </label>
+                }
+                @if (ViewBag.YetersizIzinGunu != null)
+                {
+                    <label class="text-danger girisleft">
+                        @ViewBag.YetersizIzinGunu
+                    </label>
+                }
+                @if (ViewBag.AynıTarihliIzin != null)
+                {
+                    <label class="text-danger girisleft">
+                        @ViewBag.AynıTarihliIzin
+                    </label>
+                }
+                @if (ViewBag.TarihleriKontrolEdin != null)
+                {
+                    <label class="text-danger girisleft">
+                        @ViewBag.TarihleriKontrolEdin
+                    </label>
+                }
+                @if (ViewBag.MesaiBaslangicHaftasonuOlamaz != null)
+                {
+                    <label class="text-danger girisleft">
+                        @ViewBag.MesaiBaslangicHaftasonuOlamaz
+                    </label>
+                }
+                <form asp-action="Create" class="card-body" enctype="multipart/form-data" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-title">
+                        <h5>
+                            İzin Talep Formu
+                        </h5>
+                    </div><hr />
+                    <div class="row">
+                        <p class="control-label col w-50 border-white girisleft">İzin Başlangıç Tarihi</p>
+                        <p class="control-label col w-50 border-white girisleft">Mesai Başlangıç Tarihi</p>
+                    </div>
+                    <div class="row">
+                        <input value="" type="date" class="col w-50 girisleft" asp-for="BaslangicTarihi" />
+                        <input value="" type="date" class="col w-50 girisright girisleft" asp-for="MesaiBaslangicTarihi" />
+
+                    </div>
+                    <br />
+                    <div class="row">
+
+                        <p class="girisleft">Kullandığınız toplam yıllık izin sayısı : @Model.Calisan.KullandigiYıllıkIzinSayisi</p>
+                        <p class="girisleft girisright">Kalan yıllık izin hakkınız :  @Model.Calisan.KalanYıllıkIzinSayisi</p>
+
+
+                    </div>
+                    <div class="row">
+
+                        <p class="girisleft girisright">
+                            Toplam kullandığınız izin gün sayısı : @Model.Calisan.ToplamKullanilanIzinSayisi
+                        </p>
+
+
+                    </div>
+                    <div>
+                        <p class="w-100 girisleft">Lütfen kullanmak istediğiniz izin türünü seçiniz</p>
+                        <select asp-for="IzinTanimi" class="form-control btn dropdown w-100 girisright pborder-margin" asp-items="Html.GetEnumSelectList<IzinTanimi>()"></select>
+                    </div>
+                    <br />
+                    <div class="dropzone w-100">
+                        <span class="center">Dosya seçin veya sürükleyin</span>
+                        <div class="center">
+                            @*<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />*@
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cloud-upload" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z" />
+                                <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z" />
+                            </svg>
+                            <input asp-for="IzinBelgesi" class="upload-input" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <p class="col w-50 border-white text-black-50 girisleft">Açıklama</p>
+                    </div>
+                    <div class="row">
+                        <input type="text" class="col w-100 girisright girisleft" asp-for="IzinDetayTalebi" />
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <button type="reset" class="col btn w-25 border girisleft">İptal</button>
+                        <input type="submit" class="col btn w-25 border girisright" value="Kaydet" />
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

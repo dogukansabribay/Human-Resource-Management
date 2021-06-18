@@ -1,0 +1,148 @@
+﻿@model Entities.Concrete.Calisan
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Calisan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="CalisanId" class="control-label"></label>
+                <input asp-for="CalisanId" class="form-control" />
+                <span asp-validation-for="CalisanId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Adi" class="control-label"></label>
+                <input asp-for="Adi" class="form-control" />
+                <span asp-validation-for="Adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyadi" class="control-label"></label>
+                <input asp-for="Soyadi" class="form-control" />
+                <span asp-validation-for="Soyadi" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="DogumTarihi" class="control-label"></label>
+                <input asp-for="DogumTarihi" class="form-control" />
+                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="TcNo" class="control-label"></label>
+                <input asp-for="TcNo" class="form-control" />
+                <span asp-validation-for="TcNo" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="ErisimTuru" class="control-label"></label>
+                <select asp-for="ErisimTuru" asp-items="Html.GetEnumSelectList<ErisimTuru>()" class="form-control"> </select>               
+                <span asp-validation-for="ErisimTuru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SozlesmeTuru" class="control-label"></label>
+                <select asp-for="SozlesmeTuru" asp-items="Html.GetEnumSelectList<SozlesmeTuru>()" class="form-control" ></select>
+                <span asp-validation-for="SozlesmeTuru" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="EngelDerecesi" class="control-label"></label>
+                <select asp-for="EngelDerecesi" asp-items="Html.GetEnumSelectList<EngelDerecesi>()" class="form-control" > </select>
+                <span asp-validation-for="EngelDerecesi" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="Uyruk" class="control-label"></label>
+                <input asp-for="Uyruk" class="form-control" />
+                <span asp-validation-for="Uyruk" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="Cinsiyet" class="control-label"></label>
+                <select asp-for="Cinsiyet" asp-items="Html.GetEnumSelectList<Cinsiyet>()" class="form-control" > </select>
+                <span asp-validation-for="Cinsiyet" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="KanGrubu" class="control-label"></label>
+                <select asp-for="KanGrubu" asp-items="Html.GetEnumSelectList<KanGrubu>()" class="form-control"> </select>
+                <span asp-validation-for="KanGrubu" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="EgitimDurumu" class="control-label"></label>
+                <select asp-for="EgitimDurumu" asp-items="Html.GetEnumSelectList<EgitimDurumu>()" class="form-control"> </select>
+                <span asp-validation-for="EgitimDurumu" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="EgitimSeviyesi" class="control-label"></label>
+                <select asp-for="EgitimSeviyesi" asp-items="Html.GetEnumSelectList<EgitimSeviyesi>()"  class="form-control"  ></select>
+                <span asp-validation-for="EgitimSeviyesi" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="SonTamamlananEgitimKurumu" class="control-label"></label>
+                <input asp-for="SonTamamlananEgitimKurumu" class="form-control" />
+                <span asp-validation-for="SonTamamlananEgitimKurumu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CocukSayisi" class="control-label"></label>
+                <input asp-for="CocukSayisi" class="form-control" />
+                <span asp-validation-for="CocukSayisi" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="MailIs" class="control-label"></label>
+                <input asp-for="MailIs" class="form-control" />
+                <span asp-validation-for="MailIs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailKisisel" class="control-label"></label>
+                <input asp-for="MailKisisel" class="form-control" />
+                <span asp-validation-for="MailKisisel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelIs" class="control-label"></label>
+                <input asp-for="TelIs" class="form-control" />
+                <span asp-validation-for="TelIs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelKisisel" class="control-label"></label>
+                <input asp-for="TelKisisel" class="form-control" />
+                <span asp-validation-for="TelKisisel" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Fotograf" class="control-label"></label>
+                <input asp-for="Fotograf" class="form-control" />
+                <span asp-validation-for="Fotograf" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AktifMi" /> @Html.DisplayNameFor(model => model.AktifMi)
+                </label>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="İseGirisTarihi" class="control-label"></label>
+                <input asp-for="İseGirisTarihi" class="form-control" />
+                <span asp-validation-for="İseGirisTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SozlesmeBitisTarihi" class="control-label"></label>
+                <input asp-for="SozlesmeBitisTarihi" class="form-control" />
+                <span asp-validation-for="SozlesmeBitisTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedeniDurum" class="control-label"></label>
+                <select asp-items="Html.GetEnumSelectList<MedeniDurum>()" asp-for="MedeniDurum" class="form-control" > </select>
+                <span asp-validation-for="MedeniDurum" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

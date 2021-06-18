@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Entities.Concrete.CalisanAvans>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaksitSayısı)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvansMiktarı)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acıklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvansTarihi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaksitSayısı)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvansMiktarı)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acıklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvansTarihi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CalisanAvansID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CalisanAvansID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CalisanAvansID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

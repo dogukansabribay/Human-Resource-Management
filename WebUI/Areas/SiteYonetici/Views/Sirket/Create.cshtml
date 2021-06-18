@@ -1,0 +1,56 @@
+﻿@model DataAccess.ViewModels.SirketViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/SiteYonetici/Views/Shared/_LayoutSiteYonetici.cshtml";
+}
+
+<h2>Create</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label class="control-label">Şirket Adı</label>
+                <input asp-for="SirketAdi" class="form-control" />
+                <span asp-validation-for="SirketAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="control-label">Logo</label>
+                    <input asp-for="ResimDosyasi" class="form-control" required>
+                    <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Yönetici Adı</label>
+                <input asp-for="YoneticiAdi" class="form-control" />
+                <span asp-validation-for="YoneticiAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Yönetici Soyadı</label>
+                <input asp-for="YoneticiSoyadi" class="form-control" />
+                <span asp-validation-for="YoneticiSoyadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Yönetici Doğum Tarihi</label>
+                <input type="date" asp-for="YoneticiDogumTarihi" class="form-control" />
+                <span asp-validation-for="YoneticiDogumTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Yönetici E-Mail</label>
+                <input asp-for="YoneticiEmail" class="form-control" />
+                <span asp-validation-for="YoneticiEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Üyeli Planı</label>
+                @Html.DropDownListFor(x => x.UyelikPlani.UyelikPlaniID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

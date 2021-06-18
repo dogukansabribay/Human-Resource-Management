@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DataAccess.ViewModels.CalisanAvansViewModel>
+
+
+
+<div class="card border border-dark">
+
+    <table class="table" title="Avans Çizelgesi">
+        <thead>
+            <tr>
+                <th class="">
+                    @Html.DisplayNameFor(model => model.AvansTarihi)
+                </th>
+                <th class="">
+                    @Html.DisplayNameFor(model => model.AvansTalepEdilenTarih)
+                </th>
+                <th class="">
+                    @Html.DisplayNameFor(model => model.AvansOnaylandıgıTarih)
+                </th>
+                <th class="">
+                    @Html.DisplayNameFor(model => model.AvansVerildigiTarih)
+                </th>
+                <th class="float-right">
+                    @Html.DisplayNameFor(model => model.AvansMiktarı)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="">
+                        <a asp-action="Details" asp-controller="CalisanAvans" asp-route-id="@item.AvansTarihi.ToString("yyyy-MM-dd")"> @Html.DisplayFor(modelItem => item.AvansTarihi)  </a>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.AvansTalepEdilenTarih)</td>
+                    <td>
+                        @{ if (item.AvansOnaylandıgıTarih.Year < 1750)
+                            {
+                                <label>----</label>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.AvansOnaylandıgıTarih)
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{ if (item.AvansVerildigiTarih.Year < 1750)
+                            {
+                                <label>----</label>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.AvansVerildigiTarih)
+                            }
+                        }
+
+                    </td>
+                    <td class="float-right">
+                        @Html.DisplayFor(modelItem => item.AvansMiktarı)
+
+                    <td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

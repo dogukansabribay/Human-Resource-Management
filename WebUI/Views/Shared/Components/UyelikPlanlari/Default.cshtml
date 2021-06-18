@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Entities.Concrete.UyelikPlani>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<style>
+
+    .history-item {
+        padding: 0px;
+/*        margin: 20px;
+*/        display: unset;
+        text-align:initial;
+    }
+
+    .dark h3 {
+        margin-top: 45px;
+        margin-bottom: 45px;
+        margin-left: 50%
+    }
+
+    .container {
+        margin-right: auto;
+        margin-left: auto
+    }
+
+    .history-hex::before {
+        border-bottom: 19.05px solid #ffbd8b54;
+    }
+
+    .history-hex::after {
+        border-top: 19.05px solid #ffbd8b54;
+    }
+
+    .history-hex {
+        background-color: #ffbd8b54;
+    }
+
+    svg, svg:not(:root) {
+        position: absolute;
+        top: 30%;
+        left: 20%;
+        color: #274a43;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="@*col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8*@" style="margin:auto">
+            <div class="page-title home text-center">
+                <h2><span class="border-secondary">Planlarımız</span><span class="title-bg">Planlarımız</span></h2>
+                @foreach (var item in Model)
+                {
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <span class="history-hex"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                                <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </div>
+                        <div class="history-text">
+                            <h5>@item.UyelikPlaniTanimi</h5>
+                            <span>@item.CalisanSayisi Kişi</span>
+                            <span>@item.PlanUcreti </span>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

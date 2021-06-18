@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Entities.Concrete.Izin>
+
+@{
+	ViewData["Title"] = "IzinGorutulemePage";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+	.marginleft {
+		margin-left: 335px;
+	}
+</style>
+<div class="row">
+	<div class="col">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">İzinlerim</h5>
+				<table class="table">
+					<thead>
+						<tr>
+							
+							<th scope="col">Başlangıç</th>
+							<th scope="col">Bitiş</th>							
+							<th scope="col">İzin Türü</th>
+							<th scope="col">Açıklama</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td>@Html.DisplayFor(a => item.BaslangicTarihi)</td>
+								<td>@Html.DisplayFor(a => item.MesaiBaslangicTarihi)</td>
+								<td>@Html.DisplayFor(a => item.IzinTanimi)</td>
+								<td>@Html.DisplayFor(a => item.IzinDetayTalebi)</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script src="Bootstrap4/js/bootstrap.min.js"></script>
+<script>
+		$(document).ready(function () {
+			$('.leftmenutrigger').on('click', function (e) {
+				$('.side-nav').toggleClass("open");
+				e.preventDefault();
+			});
+		});
+</script>
+
+
+@*<p>
+		<a asp-action="Create">Create New</a>
+	</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.IzinTanimi)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.BaslangicTarihi)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.BitisTarihi)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.OnayRedDurumu)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.IzinDetayTalebi)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.IzinBelgesiYolu)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Calisan)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.CreatedDate)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.ModifiedDate)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+	@foreach (var item in Model) {
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.IzinTanimi)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.BaslangicTarihi)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.BitisTarihi)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.OnayRedDurumu)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.IzinDetayTalebi)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.IzinBelgesiYolu)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Calisan.Adi)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.CreatedDate)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.ModifiedDate)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.IzinID">Edit</a> |
+					<a asp-action="Details" asp-route-id="@item.IzinID">Details</a> |
+					<a asp-action="Delete" asp-route-id="@item.IzinID">Delete</a>
+				</td>
+			</tr>
+	}
+		</tbody>
+	</table>*@

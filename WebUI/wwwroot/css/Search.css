@@ -1,0 +1,28 @@
+﻿
+
+.searchbar {
+    border: 1px solid black;
+    margin-bottom: auto;
+    margin-top: auto;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.search_input {
+    border: 0;
+    outline: 0;
+    background: none;
+    line-height: 20px;
+    transition: width 0.4s linear;
+}
+
+.search_icon {
+    height: 20px;
+    width: 20px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+}

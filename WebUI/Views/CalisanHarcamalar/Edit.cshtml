@@ -1,0 +1,49 @@
+﻿@model Entities.Concrete.CalisanHarcama
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CalisanHarcama</h4>
+<hr />
+<div class="row"> 
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CalisanHarcamaID" />
+            <div class="form-group">
+                <label asp-for="HarcamaAciklamasi" class="control-label"></label>
+                <input asp-for="HarcamaAciklamasi" class="form-control" />
+                <span asp-validation-for="HarcamaAciklamasi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HarcamaMiktari" class="control-label"></label>
+                <input asp-for="HarcamaMiktari" class="form-control" />
+                <span asp-validation-for="HarcamaMiktari" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HarcamaBelgesiYolu" class="control-label"></label>
+                <input asp-for="HarcamaBelgesiYolu" class="form-control" />
+                <span asp-validation-for="HarcamaBelgesiYolu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CalisanId" class="control-label"></label>
+                <select asp-for="CalisanId" class="form-control" asp-items="ViewBag.CalisanId"></select>
+                <span asp-validation-for="CalisanId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

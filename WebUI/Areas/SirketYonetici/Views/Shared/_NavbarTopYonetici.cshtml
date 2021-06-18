@@ -1,0 +1,118 @@
+﻿<link href="~/css/LayoutTop.css" rel="stylesheet" />
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<nav class="navbar navbar-icon-top navbar-expand-sm navbar-expand" style="background-color:#5c99ae">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="SirketYonetici" asp-controller="Bildirims" asp-action="Index">
+                    <i class="fa fa-bell">
+                        <span class="badge badge-light rounded-circle">
+                            <span id="BildirimSayisi"></span>
+                        </span>
+                    </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="SirketYonetici" asp-controller="Izin" asp-action="index">
+                    <span class="badge badge-light rounded-circle">
+                        <span id="IzinSayisi" class=""></span>
+                    </span>İzin Talepleri</span>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="SirketYonetici" asp-controller="CalisanHarcama" asp-action="index">
+                    <span class="badge badge-light rounded-circle">
+                        <span id="HarcamaSayisi" class=""></span>
+                    </span>Harcama Talepleri</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="SirketYonetici" asp-controller="CalisanAvans" asp-action="index">
+                    <span class="badge badge-light rounded-circle">
+                        <span id="AvansSayisi" class=""></span>
+                    </span>Avans Talepleri</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" class="nav-link">
+                    <p>Şablonlar</p>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="changecolor" asp-area="SirketYonetici" asp-controller="Bildirims" asp-action="SablonCreate">Şablon Oluştur</a></li>
+                    <li><a class="changecolor" asp-area="SirketYonetici" asp-controller="Bildirims" asp-action="SablonIndex">Şablonlar</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="SirketYonetici" asp-controller="Calisans" asp-action="CalisanGoruntuleme"><p>Çalışanlar</p></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="" asp-action=""><p>Eğitimlerim</p></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="" asp-action=""><p>Kariyerim</p></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="SirketYonetici" asp-controller="Yorum" asp-action="YorumEkle"><p>Yorum Ekle</p></a>
+            </li>
+           
+        </ul>
+
+    </div>
+</nav>
+<script>
+    $(document).ready(function ()
+    {
+        // set the url to get the data from the PersonController
+        var url = '@Url.Action("GetBildirimSayisi", "Bildirim")';
+
+        // use jQuery.getJSON to get our data from the controller
+        $.getJSON(url, function(data) {
+            // update the element with the count from the controller
+            $('#BildirimSayisi').text(data.count);
+        });
+
+
+    });
+
+    $(document).ready(function () {
+        var url2 = '@Url.Action("GetBelirsizAvansSayisi", "CalisanAvans")';
+
+        // use jQuery.getJSON to get our data from the controller
+        $.getJSON(url2, function (data2) {
+            // update the element with the count from the controller
+            $('#AvansSayisi').text(data2.count);
+        });
+
+    });
+
+      $(document).ready(function () {
+        var url3 = '@Url.Action("GetBelirsizHarcamaSayisi", "CalisanHarcama")';
+
+        // use jQuery.getJSON to get our data from the controller
+        $.getJSON(url3, function (data3) {
+            // update the element with the count from the controller
+            $('#HarcamaSayisi').text(data3.count);
+        });
+
+      });
+
+      $(document).ready(function () {
+        var url4 = '@Url.Action("GetBelirsizIzinSayisi", "Izin")';
+
+        // use jQuery.getJSON to get our data from the controller
+        $.getJSON(url4, function (data4) {
+            // update the element with the count from the controller
+            $('#IzinSayisi').text(data4.count);
+        });
+
+    });
+</script>
+

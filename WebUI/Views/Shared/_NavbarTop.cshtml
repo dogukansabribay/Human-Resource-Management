@@ -1,0 +1,55 @@
+﻿<link href="~/css/LayoutTop.css" rel="stylesheet" />
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+    .nav-item:hover {
+    }
+</style>
+<nav class="navbar navbar-icon-top navbar-expand-sm navbar-expand" style="background-color:#5c99ae">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Bildirim" asp-action="Index">
+                    <i class="fa fa-bell">
+                        <span class="badge badge-light rounded-circle">
+                            <span id="BildirimSayisi"></span>
+                        </span>
+                    </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Izin" asp-action="IzinGorutulemePage">İzin Geçmişim</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Calisan" asp-action="Harcamalar">Harcama Geçmişim</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Calisan" asp-action="CalisanGoruntuleme">Çalışanlar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Calisan" asp-action="CalisanEgitimGoruntuleme">Eğitimlerim</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Calisan" asp-action="CalisanKariyerGoruntuleme">Kariyerim</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+	$(document).ready(function () {
+        // set the url to get the data from the PersonController
+        var url = '@Url.Action("GetBildirimSayisi", "Bildirim")';
+
+        // use jQuery.getJSON to get our data from the controller
+        $.getJSON(url, function(data) {
+            // update the element with the count from the controller
+            $('#BildirimSayisi').text(data.count);
+        });
+    });
+</script>

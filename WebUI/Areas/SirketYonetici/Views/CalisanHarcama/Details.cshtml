@@ -1,0 +1,73 @@
+﻿@model Entities.Concrete.CalisanHarcama
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/SirketYonetici/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CalisanHarcama</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HarcamaAciklamasi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HarcamaAciklamasi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RedAcıklaması)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RedAcıklaması)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HarcamaMiktari)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HarcamaMiktari)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HarcamaTarihi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HarcamaTarihi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HarcamaBelgesiYolu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HarcamaBelgesiYolu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Calisan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calisan.Adi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OnayDurumu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OnayDurumu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CalisanHarcamaID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

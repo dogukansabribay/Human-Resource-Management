@@ -1,0 +1,307 @@
+﻿@model IEnumerable<Entities.Concrete.CalisanAvans>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="css/DetaylarDeneme2.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/normalize.min.css">
+<link rel="stylesheet" href="css/mainstyles.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/moment-with-locales.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/customJquery.js"></script>
+<style>
+    .nav-links {
+        color: black;
+    }
+
+    .nav-pills .nav-links.active, .nav-pills .show > .nav-links {
+        background-color: #5c99ae;
+        color: white;
+    }
+</style>
+
+
+<section id="post-your-event-tabs">
+    <div class="container">
+        <!-- Nav pills -->
+        <ul class="nav nav-pills nav-justified" role="tablist">
+            <li class="nav-item">
+                <a class="btn nav-links active" id="organizer-event-tab" data-toggle="tab" href="#organizer-event" role="tab" aria-controls="organizer-event" aria-selected="true"> Onay Bekleyen Avans Talepleri</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn nav-links" id="event-details-tab" data-toggle="tab" href="#event-details" role="tab" aria-controls="event-details" aria-selected="false">Onaylanan Avans Talepleri</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn nav-links" id="confirm-details-tab" data-toggle="tab" href="#confirm-details" role="tab" aria-controls="confirm-details" aria-selected="false">Reddedilen Avans Talepleri</a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <form class="card-body" method="post" asp-controller="CalisanAvans" asp-area="SirketYonetici">
+
+            <div class="tab-content py-3 px-3 px-sm-0 events-tab-content" id="my_div">
+                <div class="tab-pane fade show active" id="organizer-event" role="tabpanel" aria-labelledby="organizer-event-tab ">
+
+                    <table class="table" >
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansMiktarı)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansTarihi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansTalepEdilenTarih)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Calisan.Adi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Calisan.Soyadi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OnayDurumu)
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                @if (item.OnayDurumu == OnayDurumu.Belirsiz)
+                                {
+                                    <tr></tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansMiktarı)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansTarihi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansTalepEdilenTarih)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Calisan.Adi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Calisan.Soyadi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OnayDurumu)
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-action="AvansOnay" asp-route-id="@item.CalisanAvansID">Onayla</a>
+                                        </td>
+                                        <form asp-action="AvansRed" asp-controller="CalisanAvans">
+                                            <td>
+                                                <input class="btn btn-danger" type="submit" value="Reddet" />
+                                                <input type="hidden" name="id" value="@item.CalisanAvansID" />
+
+                                                <input type="text" name="RedAciklama" placeholder="Açıklama(Red için)" />
+                                            </td>
+                                        </form>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="event-details" role="tabpanel" aria-labelledby="event-details-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansMiktarı)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansTarihi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansTalepEdilenTarih)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansOnaylandıgıTarih)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Calisan.Adi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Calisan.Soyadi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OnayDurumu)
+                                </th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                @if (item.OnayDurumu == OnayDurumu.Onaylı)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansMiktarı)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansTarihi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansTalepEdilenTarih)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansOnaylandıgıTarih)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Calisan.Adi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Calisan.Soyadi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OnayDurumu)
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="confirm-details" role="tabpanel" aria-labelledby="confirm-details-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansMiktarı)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansTarihi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AvansTalepEdilenTarih)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Calisan.Adi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Calisan.Soyadi)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OnayDurumu)
+                                </th>
+                                <th>Avans Reddedilme Nedeni</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                @if (item.OnayDurumu == OnayDurumu.Red)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansMiktarı)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansTarihi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AvansTalepEdilenTarih)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Calisan.Adi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Calisan.Soyadi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OnayDurumu)
+                                        </td>
+                                        <td> @Html.DisplayFor(modelItem => item.RedAciklama)</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+<script src="Bootstrap4/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var navHeight = $('nav').height();
+        //$('body').css({ 'padding-top': navHeight + 35 + 'px' });
+
+        $('[data-toggle="popover"]').popover({ trigger: "hover" });
+        $('#datetimepicker1, #datetimepicker2, #datetimepicker3').datetimepicker({
+            minDate: new Date(),
+            format: 'MM/DD/YYYY'
+        });
+
+        $(".ripple-effect").click(function (e) {
+            var rippler = $(this);
+
+            // create .ink element if it doesn't exist
+            if (rippler.find(".ink").length == 0) {
+                rippler.append("<span class='ink'></span>");
+            }
+
+            var ink = rippler.find(".ink");
+
+            // prevent quick double clicks
+            ink.removeClass("animate");
+
+            // set .ink diametr
+            if (!ink.height() && !ink.width()) {
+                var d = Math.max(rippler.outerWidth(), rippler.outerHeight());
+                ink.css({ height: d, width: d });
+            }
+
+            // get click coordinates
+            var x = e.pageX - rippler.offset().left - ink.width() / 2;
+            var y = e.pageY - rippler.offset().top - ink.height() / 2;
+
+            // set .ink position and add class .animate
+            ink.css({
+                top: y + 'px',
+                left: x + 'px'
+            }).addClass("animate");
+        });
+
+        setInterval(function () { location.reload(); }, 5000);
+    });
+
+   
+
+</script>

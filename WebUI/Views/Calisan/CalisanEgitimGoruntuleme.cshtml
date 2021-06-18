@@ -1,0 +1,51 @@
+﻿@model DataAccess.ViewModels.CalisanEgitimViewModel
+
+@{
+    ViewData["Title"] = "CalisanEgitimGoruntuleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    .marginleft {
+        margin-left: 335px;
+    }
+</style>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Calisan.Adi @Model.Calisan.Soyadi Eğitim Bilgileri</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Okul Adı</th>
+                            <th scope="col">Eğitim Seviyesi</th>
+                            <th scope="col">Mezuniyet Tarihi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.EgitimBilgileri.Count; i++)
+                        {
+                            <tr>
+                                <th scope="row">@(i+1)</th>
+                                <td>@Model.EgitimBilgileri.ElementAtOrDefault(i).OkulAdi</td>
+                                <td>@Model.EgitimBilgileri.ElementAtOrDefault(i).EgitimSeviyesi</td>
+                                <td>@Model.EgitimBilgileri.ElementAtOrDefault(i).MezuniyetTarihi</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="Bootstrap4/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.leftmenutrigger').on('click', function (e) {
+            $('.side-nav').toggleClass("open");
+            e.preventDefault();
+        });
+    });
+</script>

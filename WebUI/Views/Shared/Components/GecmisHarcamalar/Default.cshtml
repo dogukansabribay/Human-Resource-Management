@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Entities.Concrete.CalisanHarcama>
+
+@{
+    ViewData["Title"] = "GecmisHarcamalar";
+}
+@*<h5>Hello</h5>*@
+@*<link href="~/Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+@for (int j = 0; j < Model.Count(); j++)
+{
+    if (collection.ContainsKey(Model.ElementAtOrDefault(j).HarcamaTarihi.Month))
+    {
+        aylikToplam += Model.ElementAtOrDefault(j).HarcamaMiktari;
+        <div class="col-5" style="margin-top:15px;display:inline-block">
+            <div class="card">
+                <img class="card-img-bottom" src="~/HarcamaResimler/@Model.ElementAtOrDefault(j).HarcamaBelgesiYolu">
+                <div class="card-body">
+                    Açıklama:<label>@Model.ElementAtOrDefault(j).HarcamaAciklamasi</label>
+                    <br />
+                    Miktar:<label>@Model.ElementAtOrDefault(j).HarcamaMiktari</label>
+                    <br />
+                    <label>@Model.ElementAtOrDefault(j).CreatedDate</label>
+                </div>
+                <a asp-action="HarcamaDetay" asp-controller="CalisanHarcamalar"
+                   asp-route-id="@Model.ElementAtOrDefault(j).CalisanHarcamaID">Harcama Detayi</a>
+            </div>
+        </div>
+
+    }
+    <div class="col-12">Aylık Toplam Harcama Tutarı: @aylikToplam</div>
+}*@

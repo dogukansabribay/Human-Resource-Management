@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Entities.Concrete.Bildirim>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .card {
+        width: 500px;
+        height: 500px;
+        margin-right: 50px
+    }
+
+    p {
+        margin-left: 25%
+    }
+
+    img {
+        padding-left: 150px;
+        padding-top: 50px
+    }
+</style>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Konu
+            </th>
+            <th>
+                Açıklama
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+           
+
+            <td>
+                <a asp-action="BildirimDetay" asp-route-id="@item.BildirimId">Detay</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

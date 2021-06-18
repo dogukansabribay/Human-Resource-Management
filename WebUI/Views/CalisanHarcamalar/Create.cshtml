@@ -1,0 +1,65 @@
+﻿@model Entities.Concrete.CalisanHarcama
+
+@{
+    ViewData["Title"] = "Create";
+}
+<link href="~/css/IzinHarcamaTalepCard.css" rel="stylesheet" />
+
+<div class="content">
+    <div class="d-flex justify-content-center">
+        <div class="card">
+            <div class="w-100">
+                <form asp-action="Create" class="card-body" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-title">
+                        <h5>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-credit-card-2-back" viewBox="0 0 16 16" style="margin-top:5px">
+                                <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z" />
+                                <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z" />
+                            </svg>
+                            Harcama Ekle
+                        </h5>
+                    </div><hr />
+
+                    @*<button class="btn w-100 border">Fiş Ekle</button>*@
+                    <p class="btn w-100 disabled border-dark pcolor pborder-margin">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-up-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6.364 13.5a.5.5 0 0 0 .5.5H13.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 13.5 1h-10A1.5 1.5 0 0 0 2 2.5v6.636a.5.5 0 1 0 1 0V2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H6.864a.5.5 0 0 0-.5.5z" />
+                            <path fill-rule="evenodd" d="M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0v-5z" />
+                        </svg>Fiş Ekleyin
+                    </p>
+                    <div class="row">
+                        <p class="btn w-100 disabled border-dark pcolor pborder-margin girisleft girisright">
+                            <input asp-for="HarcamaBelgesi">
+                        </p>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <p class="col w-50 border-white girisleft pcolor pborder-margin">Harcama Tutarını Belirtiniz</p>
+                        <p class="col w-50 border-white girisleft pcolor pborder-margin">Tarih</p>
+                    </div>
+                    <div class="row">
+                        <input asp-for="HarcamaMiktari" placeholder="Harcama Tutarı" class="form-control border border-dark col w-50 girisleft" />
+                        <input type="date" asp-for="HarcamaTarihi" class="form-control border border-dark  col w-50 girisright girisleft" />
+                    </div>
+                    <br />
+                    <div class="row">
+                        <p class="col w-50 border-white girisleft pcolor pborder-margin">Açıklama</p>
+                    </div>
+                    <div class="row">
+                        <input asp-for="HarcamaAciklamasi" placeholder="Açıklama giriniz." class="form-control col w-100 border border-dark girisright girisleft" />
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <button class="col btn w-25 border girisleft btncolor">İptal</button>
+
+                        <input  type="submit" value="Kaydet" class="btn col btn w-25 border girisleft btncolor" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

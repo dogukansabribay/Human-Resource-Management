@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Entities.Concrete.CalisanKariyer>
+
+@{
+    ViewData["Title"] = "CalisanKariyerGoruntuleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+      
+<link href="Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .marginleft {
+        margin-left: 335px;
+    }
+</style>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kariyer Bilgilerim</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">@Html.DisplayNameFor(model=>model.IseGirisTarihi)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.IstenCikisTarihi)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CalismaSekli)</th>
+                          
+                            <th scope="col">@Html.DisplayNameFor(model => model.Sube)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Departman)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Unvan)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.YetenekTanimi)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.GorevTanimi)</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IseGirisTarihi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IstenCikisTarihi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CalismaSekli)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sube)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Departman)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Unvan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.YetenekTanimi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GorevTanimi)
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="Bootstrap4/js/bootstrap.min.js"></script>
+<script>
+		$(document).ready(function () {
+			$('.leftmenutrigger').on('click', function (e) {
+				$('.side-nav').toggleClass("open");
+				e.preventDefault();
+			});
+		});
+</script>

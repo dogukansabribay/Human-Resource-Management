@@ -1,0 +1,25 @@
+﻿
+.sidebar .nav > li.active-pro a {
+    background-color: inherit;
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+    .sidebar .nav > li.active-pro a:hover {
+        background-color: rgba(255, 255, 255, 0.13)
+    }
+
+.sidebar .nav li > .changecolor {
+    color: black;
+    width: 200px;
+}
+
+.dropdown-menu {
+    margin-left: 15px
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+

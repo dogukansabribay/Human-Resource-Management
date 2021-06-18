@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/SiteYonetici/Views/Shared/_LayoutSiteYonetici.cshtml";
+}
+
+<h2>SİTE ADMİN PANELİ</h2>
+
+<div>
+    @await Component.InvokeAsync("SirketPlanlari")
+</div>
+@await Component.InvokeAsync("PaketBitimiKontrol")

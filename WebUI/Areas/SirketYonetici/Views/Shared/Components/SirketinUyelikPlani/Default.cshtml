@@ -1,0 +1,96 @@
+﻿@model DataAccess.ViewModels.SirketinUyelikPlaniViewModel
+<!--Skill bar için-->
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Open+Sans:400,600,700,800" rel="stylesheet">
+<link href="~/Bootstrap4/HomeCss/themefisher-fonts.min.css" rel="stylesheet" />
+<link href="~/Bootstrap4/HomeCss/owl.carousel.min.css" rel="stylesheet" />
+<link href="~/Bootstrap4/HomeCss/main.css" rel="stylesheet" />
+<link href="~/Bootstrap4/HomeCss/dark.css" rel="stylesheet" />
+<link href="~/Bootstrap4/HomeCss/blue.css" rel="stylesheet" />
+
+<style>
+    .progress {
+        background-color: transparent;
+        line-height: 0px;
+    }
+
+        .progress > div {
+            color: #1F77D0;
+            font-weight: bold;
+        }
+
+        .progress .bar, .section-title h3::after {
+            background-color: #533ce1
+        }
+
+        .progress .skill-bar {
+            background-color: #b2c4d5;
+            max-width:100px
+        }
+
+        /* Tooltip container */
+        .progress .tooltip {
+            position: relative;
+            display: inline-block;
+            opacity: unset;
+        }
+
+            /* Tooltip text */
+            .progress .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                color: #533ce1;
+                text-align: center;
+                padding: 5px 0;
+                border-radius: 6px;
+                /* Position the tooltip text - see examples below! */
+                position: fixed;
+                z-index: 1;
+            }
+
+            /* Show the tooltip text when you mouse over the tooltip container */
+            .progress .tooltip:hover .tooltiptext {
+                visibility: visible;
+            }
+</style>
+
+
+<div class="skill-wrapper">
+    <div class="progress clear">
+        <div class="skill-name">Çalışanlar</div>
+        <div class="skill-bar">
+            <div class="bar" style="width: @ViewBag.CalisanYuzdesi"></div>
+        </div>
+        <div class="skill-lavel" data-skill-value="@Model.CalisanYuzdesi%">@Model.CalisanYuzdesi%</div>
+        <div class="tooltip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg>
+            <span class="tooltiptext"><span>@ViewBag.KalanCalisanSayisi Kişi daha ekleyebilirsiniz.</span></span>
+        </div>
+    </div> <!-- /.progress -->
+    <div class="progress clear">
+        <div class="skill-name">Zaman</div>
+        <div class="skill-bar">
+            <div class="bar" style="width:@ViewBag.ZamanYuzdesi"></div>
+        </div>
+        <div class="skill-lavel" data-skill-value="@Model.ZamanYuzdesi%">@Model.ZamanYuzdesi%</div>
+        <div class="tooltip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg>
+            <span class="tooltiptext">Paketinizin bitmesine kalan süre @ViewBag.KalanZaman ay.</span>
+        </div>
+    </div> <!-- /.progress -->
+</div> <!-- /.skill-wrapper -->
+@*Skill bar için*@
+<script src="~/Bootstrap4/HomeCss/jquery-2.2.4.min.js"></script>
+<script src="~/Bootstrap4/js/bootstrap.min.js"></script>
+@*<script src="js/jquery.easing.min.js"></script>*@
+<script src="~/Bootstrap4/HomeCss/isotope.pkgd.min.js"></script>
+<script src="~/Bootstrap4/HomeCss/jquery.nicescroll.min.js"></script>
+<script src="~/Bootstrap4/HomeCss/owl.carousel.min.js"></script>
+<script src="~/Bootstrap4/HomeCss/jquery-validation.min.js"></script>
+<script src="~/Bootstrap4/HomeCss/form.min.js"></script>
+<script src="~/Bootstrap4/HomeCss/main.js"></script>

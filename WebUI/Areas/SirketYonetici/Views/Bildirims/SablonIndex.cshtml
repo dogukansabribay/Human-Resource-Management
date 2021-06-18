@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Entities.Concrete.Bildirim>
+
+@{
+    ViewData["Title"] = "SablonIndex";
+}
+
+<link href="~/Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/CalisanGoruntuleme.css" rel="stylesheet" />
+<link href="~/lib/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet" />
+<script src="~/lib/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+
+<style>
+    .marginleft {
+        margin-left: 335px;
+    }
+
+    .our-team-main {
+        background-color: #5c99ae
+    }
+</style>
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <a asp-action="SablonDetails" asp-controller="Bildirims" asp-route-id="@item.BildirimId">
+                    <div class="our-team-main">
+                        <div class="team-front">
+                            <p>@item.Baslik</p>
+                            @* @if (item.SablonGorselYolu != null)
+                                {
+                                    <img src=@Html.DisplayFor(a => item.SablonGorselYolu) class="img-fluid" />
+                                }
+                                @if (item.SablonGorselYolu == null)
+                                {
+                                    <img src="~/5ceae25bfc6c3ba6ed010848e957eb0c.jpg" class="img-fluid" />
+                                }
+                                <h3>@Html.DisplayFor(a => item.Baslik)</h3>*@
+                        </div>
+                        <div class="team-back">
+                            <span>
+                                <br />
+                                <br />
+                                <p style="margin-left:70px;">@Html.DisplayFor(a => item.SablonTanimi)</p>
+                            </span>
+
+                        </div>
+                    </div>
+                </a>
+                <input asp-for="@item.GonderilecekMi" type="checkbox" data-toggle="toggle" disabled />
+            </div>
+        }
+
+
+    </div>
+</div>
+
+<script src="~/Bootstrap4/js/bootstrap.min.js"></script>

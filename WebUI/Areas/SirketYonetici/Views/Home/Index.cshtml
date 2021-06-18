@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Context.Request.Cookies["Username"] != null)
+{
+    <span>
+        @Context.Request.Cookies["Username"].ToUpper() Hoş geldiniz...
+    </span>
+}
+
+<div class="container col-6" style="margin-top:50px">
+    <div class="text-center">
+        <h3>Yaklaşan Doğum Günleri</h3>
+    </div>
+    @await Component.InvokeAsync("CalisanDogumGunu")
+</div>
+<div class="container col-6">
+    <div class="text-center">
+        <h3>Üyelik Planı</h3>
+    </div>
+    @await Component.InvokeAsync("SirketinUyelikPlani")
+</div>
+
+
+
+@await Component.InvokeAsync("DogumGunuKutlama")
+@await Component.InvokeAsync("ResmiTatilKutlama")
+@await Component.InvokeAsync("IzinGunuBildirim")
+

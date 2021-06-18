@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DataAccess.ViewModels.DogumGunuViewModel>
+
+
+
+
+<div class="card border border-dark">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="">
+                    @Html.DisplayNameFor(model => model.CalisanAd)
+                </th>
+                <th class="">
+                    @Html.DisplayNameFor(model => model.CalisanSoyad)
+                </th>
+                <th class="">
+                    @Html.DisplayNameFor(model => model.CalisanDogumGunu)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="">
+                    @Html.DisplayFor(modelItem => item.CalisanAd)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.CalisanSoyad)</td>
+                <th class="">
+                    @Html.DisplayFor(modelItem=> item.CalisanDogumGunu)
+                </th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

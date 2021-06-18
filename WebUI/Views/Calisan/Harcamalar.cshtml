@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Entities.Concrete.CalisanHarcama>
+
+@{
+    ViewData["Title"] = "Harcamalar";
+}
+<link href="~/Bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Bootstrap4/js/bootstrap.min.js"></script>
+<script src="~/Bootstrap4/jquery/jquery.min.js"></script>
+<style>
+    .kapsayan {
+        display: flex;
+    }
+
+        .kapsayan > a {
+            flex: 1;
+            margin-left: 30px;
+            height: 50px;
+            width: 50px;
+        }
+
+    #collapse1, #collapse2, #collapse3, #collapse4, #collapse5, #collapse6, #collapse7, #collapse8, #collapse9, #collapse10, #collapse11, #collapse12 {
+        -webkit-transition: width 2s ease;
+        -moz-transition: width 2s ease;
+        -o-transition: width 2s ease;
+        transition: width 2s ease;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        vertical-align: middle;
+        line-height: 30px;
+        height: 0px;
+        width: 0px;
+        position: absolute;
+        margin-top: 30px;
+    }
+
+        #collapse1.in, #collapse2.in, #collapse3.in, #collapse4.in, #collapse5.in, #collapse6.in, #collapse7.in, #collapse8.in, #collapse9.in, #collapse10.in, #collapse11.in, #collapse12.in {
+            width: 520px;
+            height: auto;
+        }
+
+    td {
+        width: 200px;
+    }
+
+</style>
+<h2>Harcamalar</h2>
+
+<div class="col-12" style="margin-left: 30px">Yıllık Toplam Harcama Tutarı: @ViewBag.Sum </div>
+<br />
+<div class="panel-group" id="parent">
+    <div class="panel panel-default">
+        <div class="row" style="margin-left:30px; margin-right:30px;">
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse1">Ocak</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse2">Şubat</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse3">Mart</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse4">Nisan</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse5">Mayıs</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse6">Haziran</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse7">Temmuz</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse8">Ağustos</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse9">Eylül</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse10">Ekim</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse11">Kasım</a>
+            <a class="btn col-1" data-toggle="collapse" data-parent="#parent" href="#collapse12">Aralık</a>
+        </div>
+
+        @for (int i = 1; i <= 12; i++)
+        {
+            <div class="panel-collapse collapse w-100" id="collapse@(i)" style="margin-left:30px; margin-right:30px;">
+                <div class="panel-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Açıklama</td>
+                                <td>Miktar</td>
+                                <td>Tarih</td>
+                                <td>Detay</td>
+                            </tr>
+                        </thead>
+                        @{double aylikToplam = 0; }
+                        @for (int j = 0; j < Model.Count(); j++)
+                        {
+
+                            if (Model.ElementAtOrDefault(j).HarcamaTarihi.Month == i)
+                            {
+                                aylikToplam += Model.ElementAtOrDefault(j).HarcamaMiktari;
+                                <tbody>
+                                    <tr>
+                                        <td>@Model.ElementAtOrDefault(j).HarcamaAciklamasi</td>
+                                        <td>@Model.ElementAtOrDefault(j).HarcamaMiktari</td>
+                                        <td>@Model.ElementAtOrDefault(j).HarcamaTarihi</td>
+                                        <td> <a class="btn" asp-action="HarcamaDetay" asp-controller="CalisanHarcamalar" asp-route-id="@Model.ElementAtOrDefault(j).CalisanHarcamaID">Harcama Detayi</a></td>
+
+                                    </tr>
+                                </tbody>
+                            }
+                        }
+                    </table>
+                    <div class="col-12 border-dark">Aylık Toplam Harcama Tutarı: @aylikToplam</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
